@@ -173,7 +173,7 @@ data class ChipItem(
         )
         val Label = ChipItem(
             MAIN_SORT_LABEL,
-            R.string.sortByLabel,
+            R.string.sortLabel,
             Phosphor.TagSimple
         )
         val PackageName = ChipItem(
