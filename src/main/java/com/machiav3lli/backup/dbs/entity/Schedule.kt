@@ -17,6 +17,7 @@
  */
 package com.machiav3lli.backup.dbs.entity
 
+import android.content.Context
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
@@ -27,6 +28,7 @@ import com.machiav3lli.backup.MAIN_FILTER_DEFAULT
 import com.machiav3lli.backup.MAIN_FILTER_DEFAULT_WITHOUT_SPECIAL
 import com.machiav3lli.backup.MODE_APK
 import com.machiav3lli.backup.OABX
+import com.machiav3lli.backup.R
 import com.machiav3lli.backup.SPECIAL_FILTER_ALL
 import com.machiav3lli.backup.handler.LogsHandler
 import com.machiav3lli.backup.handler.WorkHandler
@@ -42,7 +44,7 @@ data class Schedule(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     val enabled: Boolean = false,
-    val name: String = "New Schedule",
+    val name: String = "",
     val timeHour: Int = 12,
     val timeMinute: Int = 0,
     val interval: Int = 1,
@@ -169,6 +171,11 @@ data class Schedule(
             }
         }
 
+        fun newScheduleDefaultName(context: Context): Builder {
+            schedule = schedule.copy(name = context.getString(R.string.sched_newSchedule))
+            return this
+        }
+		
         fun withId(id: Int): Builder {
             schedule = schedule.copy(id = id.toLong())
             return this
@@ -185,6 +192,7 @@ data class Schedule(
         fun import(export: Schedule): Builder {
             schedule = export
                 .copy(
+                    name = schedule.name,
                     id = schedule.id,
                     enabled = false,
                     timePlaced = System.currentTimeMillis(),

@@ -47,6 +47,7 @@
     <string name="prefs_enablespecial">Activează backupurile speciale</string>
     <string name="prefs_copyselfapk_summary">Plasează o copie a OAndBackupX la nivelul superior al folderului pentru backupuri</string>
     <string name="sched_blocklist">Listă de blocări</string>
+    <string name="sched_newSchedule">Planificare nouă</string>
     <string name="prefs_restoreallpermissions_summary">Acordă aplicației restaurate toate permisiunile pe care le solicită.</string>
     <string name="prefs_restoreallpermissions">Restaurează cu toate permisiunile</string>
     <string name="prefs_logviewer">Vezi jurnalul</string>
